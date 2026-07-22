@@ -5,7 +5,8 @@ import kotlinx.serialization.Serializable
 
 sealed class Screen : NavKey {
     @Serializable
-    data object VacioList : Screen()
+    data object GastoList : Screen()
+
     @Serializable
-    data class VacioDetail(val id: Int) : Screen()
+    data class GastoDetail(val id: Int = 0) : Screen()
 }

@@ -8,8 +8,8 @@ import androidx.navigation3.runtime.NavBackStack
 import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.ui.NavDisplay
-import com.example.william_rodriguez_ap2_p2.presentacion.vacio.detail.VacioDetailScreen
-import com.example.william_rodriguez_ap2_p2.presentacion.vacio.list.VacioListScreen
+import com.example.william_rodriguez_ap2_p2.presentacion.gasto.detail.GastoDetailScreen
+import com.example.william_rodriguez_ap2_p2.presentacion.gasto.list.GastoListScreen
 
 @Composable
 fun ApNavDisplay(
@@ -20,17 +20,19 @@ fun ApNavDisplay(
         backStack = backStack,
         modifier = Modifier.padding(innerPadding),
         entryProvider = entryProvider {
-            entry<Screen.VacioList> {
-                VacioListScreen(
-                    onVacioClick = { vacioId ->
-                        backStack.add(Screen.VacioDetail(vacioId))
+            entry<Screen.GastoList> {
+                GastoListScreen(
+                    onAddGasto = {
+                        backStack.add(Screen.GastoDetail(0))
+                    },
+                    onGastoClick = { gastoId ->
+                        backStack.add(Screen.GastoDetail(gastoId))
                     }
                 )
             }
-
-            entry<Screen.VacioDetail> { key ->
-                VacioDetailScreen(
-                    vacioId = key.id,
+            entry<Screen.GastoDetail> { key ->
+                GastoDetailScreen(
+                    gastoId = key.id,
                     onBack = {
                         if (backStack.isNotEmpty()) backStack.removeAt(backStack.size - 1)
                     }

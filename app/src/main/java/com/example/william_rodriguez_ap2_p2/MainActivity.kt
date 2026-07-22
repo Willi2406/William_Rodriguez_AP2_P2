@@ -7,7 +7,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
-import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.runtime.rememberNavBackStack
 import com.example.william_rodriguez_ap2_p2.presentacion.navegation.ApNavDisplay
 import com.example.william_rodriguez_ap2_p2.presentacion.navegation.Screen
@@ -21,7 +20,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             William_Rodriguez_AP2_P2Theme {
-                val backStack = rememberNavBackStack(Screen.VacioList)
+                val backStack = rememberNavBackStack(Screen.GastoList)
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     ApNavDisplay(
                         backStack = backStack,
